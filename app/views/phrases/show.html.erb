@@ -1,2 +1,7 @@
-<h1>Phrases#show</h1>
-<p>Find me in app/views/phrases/show.html.erb</p>
+<div class="container">
+<strong>Old String:</strong> <%= @phrase.old_string %>
+<br>
+<strong>New String:</strong> <%= @phrase.new_string %>
+<br>
+<%= link_to "New string", new_phrase_path, class: "btn btn-lg"  %>
+</div>

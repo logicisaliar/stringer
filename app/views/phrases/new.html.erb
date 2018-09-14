@@ -1,2 +1,9 @@
-<h1>Phrases#new</h1>
-<p>Find me in app/views/phrases/new.html.erb</p>
+<div class="container"><h1>Please add new Phrase - </h1>
+<%= simple_form_for @phrase, url: phrases_path do |f| %>
+<%= f.error_notification %>
+  <%= f.input :old_string %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Go back", root_path %>
+</div>
