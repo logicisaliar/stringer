@@ -7,4 +7,11 @@
       <%= link_to "New string", new_phrase_path, class: "btn btn-lg btn-success btn-block"  %>
     </div>
   </div>
+
+  <% @phrases.each do |p| %>
+  <div class="row">
+    <%= p.new_string %>
+  </div>
+  <% end %>
 </div>
+

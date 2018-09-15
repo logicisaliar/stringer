@@ -1,9 +1,9 @@
-<div class="container"><h1>Please add new Phrase - </h1>
+<div class="container"><h1>Please put text you want to change - </h1>
 <%= simple_form_for @phrase, url: phrases_path do |f| %>
 <%= f.error_notification %>
-  <%= f.input :old_string %>
-  <%= f.button :submit %>
+  <%= f.input :old_string, label: "Enter text here" %>
+  <%= f.button :submit, "Convert", class: "btn btn-lg btn-warning btn-block" %>
 <% end %>
-
-<%= link_to "Go back", root_path %>
+<br>
+<%= link_to "Go back", root_path, class: "btn btn-lg btn-success btn-block" %>
 </div>

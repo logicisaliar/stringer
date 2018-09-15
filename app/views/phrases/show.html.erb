@@ -1,7 +1,17 @@
+<br>
+<br>
+<br>
+
+
 <div class="container">
-<strong>Old String:</strong> <%= @phrase.old_string %>
-<br>
-<strong>New String:</strong> <%= @phrase.new_string %>
-<br>
-<%= link_to "New string", new_phrase_path, class: "btn btn-lg"  %>
+  <div class="row">
+    <strong>New String:</strong> <%= @phrase.new_string %>
+    <br>
+  </div>
+  <br>
+  <br>
+  <%= link_to "New string", new_phrase_path, class: "btn btn-lg btn-success btn-block"  %>
+  <br>
+
+  <%= link_to "Go to home", root_path, class: "btn btn-lg btn-success btn-block"  %>
 </div>

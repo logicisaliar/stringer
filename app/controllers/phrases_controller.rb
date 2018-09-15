@@ -16,6 +16,10 @@ class PhrasesController < ApplicationController
     end
   end
 
+  def index
+    @phrases = Phrase.all
+  end
+
   def show
     set_phrase
   end
@@ -57,12 +61,18 @@ class PhrasesController < ApplicationController
       phrase.gsub!('( ', '(')
       phrase.gsub!(' )', ')')
       phrase.gsub!(' /', '/')
+      phrase.gsub!(' ,', ',')
       phrase.gsub!('/ ', '/')
     end
     # At the end
+    phrase.gsub!(/^NR\W/,'Near ')
+    phrase.gsub!(/^OP\W/,'Opposite ')
+    phrase.gsub!(/^OPP\W/,'Opposite ')
+    phrase.gsub!(/^TE\W/,'Tehsil ')
+    phrase.gsub!(/^BH\W/,'Behind ')
+    phrase.gsub!(/^RD/,'Road ')
     phrase.gsub!(':', ': ')
     phrase.gsub!('.', '. ')
-    phrase.gsub!(' ,', ',')
     phrase.gsub!(',', ', ')
     10.times do
       if phrase[-1] =~ /\W/
