@@ -49,14 +49,26 @@ class PhrasesController < ApplicationController
     phrase.gsub!(';', ':')
     phrase.gsub!('MIDC', 'M. I. D. C.')
     phrase.gsub!('GIDC', 'G. I. D. C.')
-
-    while(phrase =~ /  /)
-      phrase.gsub!('  ', ' ')
+    5.times do
+      phrase.gsub!(' -', '-')
+      phrase.gsub!('- ', '-')
+      phrase.gsub!(' :', ':')
+      phrase.gsub!(' .', '.')
+      phrase.gsub!('( ', '(')
+      phrase.gsub!(' )', ')')
+      phrase.gsub!(' /', '/')
+      phrase.gsub!('/ ', '/')
     end
-
     # At the end
+    phrase.gsub!(':', ': ')
+    phrase.gsub!('.', '. ')
     phrase.gsub!(' ,', ',')
     phrase.gsub!(',', ', ')
+    10.times do
+      if phrase[-1] =~ /\W/
+        phrase = phrase[0..(phrase.length - 2)]
+      end
+    end
     process << phrase.titlecase
     return process
   end
